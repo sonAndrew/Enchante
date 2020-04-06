@@ -18,7 +18,13 @@
 
     <title>Enchanté - HOME</title>
 
-    <?php wp_head(); ?>
+    <?php 
+    if ( function_exists( 'wp_head()' ) ) {
+        wp_head();
+    } else {
+        do_action( 'wp_head()' );
+    } 
+    ?>
 
 </head>
 <body <?php body_class(); ?> >
@@ -30,14 +36,3 @@
             do_action( 'wp_body_open' );
         }
     ?>
-
-    <?php
-        if( function_exists( 'wp_footer();' ) ) {
-            wp_footer();
-        } else {
-            do_action( 'wp_footer')
-        }
-    ?>  
-
-</body>
-</html>
