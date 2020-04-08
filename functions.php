@@ -1,11 +1,11 @@
 <?php
-    /* * * Function to load Zurb Foundation CSS Stylesheet * * */
+    /* * * Function to load ZURB FOUNDATION CSS Stylesheet * * */
     function load_css()
     {
         /* * *
-         * Register a CSS stylesheet
-         * Using get_template_directory_uri() function to retrieve theme directory uri
-         * Loads Zurb Foundation CSS into project from specified (string) Template directory URI
+            Register a CSS stylesheet
+            Using get_template_directory_uri() function to retrieve theme directory uri
+            Loads Zurb Foundation CSS into project from specified (string) Template directory URI
         *  * */
         wp_register_style
         ( 
@@ -16,17 +16,37 @@
             'all' 
         );
         /* * * 
-         * Enqueue a CSS stylesheet
-         * In this case it's the foundation.css file we registered above
+            Enqueue a CSS stylesheet
+            In this case it's the foundation.css file we registered above
         * * */
         wp_enqueue_style
         ( 
             'foundation' 
         );
+        /* * *
+            Register a CSS stylesheet
+            CUSTOME STYLES - MAIN.CSS 
+        * * */
+        wp_register_style
+        ( 
+            'main', 
+            get_template_directory_uri() . '/assets/css/main.css', 
+            array(), 
+            false, 
+            'all' 
+        );
+        /* * * 
+            Enqueue a CSS stylesheet
+            In this case it's the main.css file we registered above
+        * * */
+        wp_enqueue_style
+        ( 
+            'main' 
+        );
     }
     /* * * 
-     * Hooks a function on to a specific action
-     * In this case its's load_css
+        Hooks a function on to a specific action
+        In this case its's load_css
     * * */
     add_action
     ( 
@@ -34,18 +54,18 @@
         'load_css' 
     );
 
-    /* * * Function to load Zurb Foundation JS * * */
+    /* * * Function to load ZURB FOUNDATION JS * * */
     function load_js()
     {
         /* * * 
-         * Enqueue a new script 
-         * In this case it's jquery
+            Enqueue a new script 
+            In this case it's jquery
         * * */
         wp_enqueue_script('jquery');
         /* * *
-         * Register a script 
-         * Using get_template_directory_uri() function to retrieve theme directory uri
-         * Loads Zurb Foundation JS into project from specified (string) Template directory URI
+            Register a script 
+            Using get_template_directory_uri() function to retrieve theme directory uri
+            Loads Zurb Foundation JS into project from specified (string) Template directory URI
         *  * */
         wp_register_script
         ( 
@@ -56,8 +76,8 @@
             true 
         );
         /* * * 
-         * Enqueue a new script 
-         * In this case it's the foundation.js file we registered above
+            Enqueue a new script 
+            In this case it's the foundation.js file we registered above
         * * */
         wp_enqueue_script
         ( 
@@ -65,8 +85,8 @@
         );
     }
     /* * * 
-     * Hooks a function on to a specific action
-     * In this case its's load_js
+        Hooks a function on to a specific action
+        In this case its's load_js
     * * */
     add_action
     ( 
