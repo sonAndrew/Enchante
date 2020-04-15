@@ -54,9 +54,12 @@
          * * * * * * * * * * * * * * * * *
          * * * * * * * * * * * * * * * * *
         */
-        /** REGISTER SETTING - FULL NAME */
+        /** REGISTER SETTING - USER INFORMATION */
         register_setting( 'enchanté_settings_group', 'first_name' );
         register_setting( 'enchanté_settings_group', 'last_name' );
+        register_setting( 'enchanté_settings_group', 'user_description' );
+        register_setting( 'enchanté_settings_group', 'user_job_title' );
+        register_setting( 'enchanté_settings_group', 'user_location' );
 
         /** REGISTER SETTING - SOCIAL NETWORKS */
         register_setting( 'enchanté_settings_group', 'facebook_handler' );
@@ -72,21 +75,28 @@
          * * * * * * * * * * * * * * * * *
          * * * * * * * * * * * * * * * * *
         */
+        /** ADD SETTINGS FIELDS - USER INFORMATION */
         add_settings_section( 'enchanté_sidebar_options', 'Sidebar Options', 'enchanté_sidebar_options', 'une_enchanté' );
         /** Settings field for Full Name */
-        add_settings_field( 'sidebar-name', 'Full Name', 'enchanté_sidebar_name', 'une_enchanté', 'enchanté_sidebar_options' );
+        add_settings_field( 'sidebar_name', 'Full Name', 'enchanté_sidebar_name', 'une_enchanté', 'enchanté_sidebar_options' );
+        /** Settings field for User Description */
+        add_settings_field( 'sidebar_description', 'User Description', 'enchanté_sidebar_description', 'une_enchanté', 'enchanté_sidebar_options' );
+        /** Settings field for User Job Title */
+        add_settings_field( 'sidebar_job', 'User Job Title', 'enchanté_sidebar_job', 'une_enchanté', 'enchanté_sidebar_options' );
+        /** Settings field for User Location */
+        add_settings_field( 'sidebar_location', 'User Location', 'enchanté_sidebar_location', 'une_enchanté', 'enchanté_sidebar_options' );
 
 
         /** ADD SETTINGS FIELD - Facebook */
-        add_settings_field( 'sidebar-facebook', 'Facebook handler', 'enchanté_sidebar_facebook', 'une_enchanté', 'enchanté_sidebar_options' );
+        add_settings_field( 'sidebar_facebook', 'Facebook handler', 'enchanté_sidebar_facebook', 'une_enchanté', 'enchanté_sidebar_options' );
         /** ADD SETTINGS FIELD - Youtube */
-        add_settings_field( 'sidebar-youtube', 'Youtube handler', 'enchanté_sidebar_youtube', 'une_enchanté', 'enchanté_sidebar_options' );
+        add_settings_field( 'sidebar_youtube', 'Youtube handler', 'enchanté_sidebar_youtube', 'une_enchanté', 'enchanté_sidebar_options' );
         /** ADD SETTINGS FIELD - Instagram */
-        add_settings_field( 'sidebar-instagram', 'Instagram handler', 'enchanté_sidebar_instagram', 'une_enchanté', 'enchanté_sidebar_options' );
+        add_settings_field( 'sidebar_instagram', 'Instagram handler', 'enchanté_sidebar_instagram', 'une_enchanté', 'enchanté_sidebar_options' );
         /** ADD SETTINGS FIELD - Twitter */
-        add_settings_field( 'sidebar-twitter', 'Twitter handler', 'enchanté_sidebar_twitter', 'une_enchanté', 'enchanté_sidebar_options' );
+        add_settings_field( 'sidebar_twitter', 'Twitter handler', 'enchanté_sidebar_twitter', 'une_enchanté', 'enchanté_sidebar_options' );
         /** ADD SETTINGS FIELD - WhatsApp */
-        add_settings_field( 'sidebar-whatsapp', 'WhatsApp handler', 'enchanté_sidebar_whatsapp', 'une_enchanté', 'enchanté_sidebar_options' );
+        add_settings_field( 'sidebar_whatsapp', 'WhatsApp handler', 'enchanté_sidebar_whatsapp', 'une_enchanté', 'enchanté_sidebar_options' );
         
     }
     /**
@@ -100,10 +110,26 @@
         /** Generation of our Sidebar */
         echo '<h1>Customize Your Sidebar Information</h1>';
     }
+    /* * * * * * * * * * * * * * * * * * * * 
+     *          USER INFORMATION 
+    * * * * * * * * * * * * * * * * * * * */
     function enchanté_sidebar_name() {
         $firstName = esc_attr( get_option( 'first_name' ) );
         $lastName = esc_attr( get_option( 'last_name' ) );
         echo '<input type="text" name="first_name" value="'.$firstName.'" placeholder="First Name" /> <input type="text" name="last_name" value="'.$lastName.'" placeholder="Last Name" />';
+    }
+    function enchanté_sidebar_description() {
+        $description = esc_attr( get_option( 'user_description' ) );
+        echo '<input type="text" name="user_description" value="'.$description.'" placeholder="Description" />
+        <p class="description">Write something about yourself.</p>';
+    }
+    function enchanté_sidebar_job() {
+        $job = esc_attr( get_option( 'user_job_title' ) );
+        echo '<input type="text" name="user_job_title" value="'.$job.'" placeholder="Job title" />';
+    }
+    function enchanté_sidebar_location() {
+        $location = esc_attr( get_option( 'user_location' ) );
+        echo '<input type="text" name="user_location" value="'.$location.'" placeholder="Location" />';
     }
     /* * * * * * * * * * * * * * * * * * * * 
      *          SOCIAL NETWORKS 
