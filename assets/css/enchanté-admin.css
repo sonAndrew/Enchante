@@ -3,21 +3,40 @@
 */
 .enchanté-admin-container {
     display: flex;
+    
 }
 .enchanté-sidebar-preview {
     width: 50%;
+    text-align: center;
     order: 2;
 }
-.enchanté-general-form {
-    width: 50%;
-    order: 1;
+.enchanté-sidebar {
+    background-color: #000000;
+    color: #F3EF7D;
+    width: 250px;
+    padding: 10px;
+}
+.enchanté-sidebar > h1 {
+    color: #F3EF7D;
 }
 .enchanté-user-social-container > ul {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
 }
 .enchanté-user-social-container > ul > li {
     margin-left: 10px;
 }
 .enchanté-user-social-container > ul > li:first-child {
     margin: 0;
+}
+.enchanté-user-social-container > ul > li > a {
+    color: #61A307;
+    text-decoration: none;
+}
+/* FORM STYLES */
+.enchanté-general-form {
+    width: 50%;
+    order: 1;
 }
