@@ -6,7 +6,7 @@
     
 }
 .enchanté-sidebar-preview {
-    width: 50%;
+    width: 40%;
     text-align: center;
     order: 2;
 }
@@ -37,6 +37,6 @@
 }
 /* FORM STYLES */
 .enchanté-general-form {
-    width: 50%;
+    width: 60%;
     order: 1;
 }

@@ -116,7 +116,7 @@
     function enchanté_sidebar_name() {
         $firstName = esc_attr( get_option( 'first_name' ) );
         $lastName = esc_attr( get_option( 'last_name' ) );
-        echo '<input type="text" name="first_name" value="'.$firstName.'" placeholder="First Name" /> <input type="text" name="last_name" value="'.$lastName.'" placeholder="Last Name" />';
+        echo '<input type="text" name="first_name" value="'.$firstName.'" placeholder="First Name" /></br></br><input type="text" name="last_name" value="'.$lastName.'" placeholder="Last Name" />';
     }
     function enchanté_sidebar_description() {
         $description = esc_attr( get_option( 'user_description' ) );
@@ -145,12 +145,12 @@
     function enchanté_sidebar_instagram() {
         $instagram = esc_attr( get_option( 'instagram_handler' ) );
         echo '<input type="text" name="instagram_handler" value="'.$instagram.'" placeholder="Instagram handler" />
-        <p class="description">Input your Instagram user name with the @ character.</p>';
+        <p class="description">Input your Instagram user name without the @ character.</p>';
     }
     function enchanté_sidebar_twitter() {
         $twitter = esc_attr( get_option( 'twitter_handler' ) );
         echo '<input type="text" name="twitter_handler" value="'.$twitter.'" placeholder="Twitter handler" />
-                <p class="description">Input your Twitter user name with the @ character.</p>';
+                <p class="description">Input your Twitter user name without the @ character.</p>';
     }
     function enchanté_sidebar_whatsapp() {
         $whatsapp = esc_attr( get_option( 'whatsapp_handler' ) );
